@@ -1,0 +1,22 @@
+.logo{
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+}
+
+.image{
+    width: 40px;
+    margin-right: 6px;
+}
+
+.icon{
+    align-self: center;
+}
+
+.pointer{
+    cursor: pointer;
+}
