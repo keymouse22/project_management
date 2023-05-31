@@ -28,7 +28,7 @@ const Page = () => {
       try {
         if (Object.values(values).length) {
           const res = await createUser(values);
-          if (res.data.login) {
+          if (res.status === 201) {
             router.push("/auth/login");
           } else {
             helpers.setStatus({ success: false });

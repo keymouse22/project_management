@@ -26,8 +26,8 @@ const Page = () => {
   const [method, setMethod] = useState('email');
   const formik = useFormik({
     initialValues: {
-      email: 'demo@devias.io',
-      password: 'Password123!',
+      email: '',
+      password: '',
       submit: null
     },
     validationSchema: Yup.object({
@@ -46,8 +46,9 @@ const Page = () => {
         if (Object.values(values).length) {
           const res = await loginUser(values);
           console.log(res)
-          if (res.data.login) {
-            router.push('/');
+          if (res.data.access_token && res.status === 201) {
+            localStorage.setItem('access_token',res.data.access_token);
+            window.location.pathname = "/"
           } else {
             helpers.setStatus({ success: false });
             helpers.setErrors({ submit: err.message });
