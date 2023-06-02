@@ -1,50 +1,50 @@
 import PropTypes from 'prop-types';
-import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
-import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
-import CurrencyDollarIcon from '@heroicons/react/24/solid/CurrencyDollarIcon';
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
 import { HiOutlinePlusCircle } from "react-icons/hi";
 import styles from "../../styles/Logo.module.css"
+import { useState, useEffect } from 'react';
+import AddCardModal from 'src/components/AddCardModal/AddCardModal';
 
-export const OverviewBudget = (props) => {
-  const { difference, positive = false, sx, value } = props;
+
+export const OverviewBudget = ({sx, setProjectName}) => {
+
+  const [modalOpened, setModalOpened] = useState(false)
+
+  const handleCardAdd = (title) => {
+    setProjectName(title);
+    setModalOpened(false)
+  }
 
   return (
-    <Card sx={sx}>
-      <CardContent>
-        <Stack
-          alignItems="flex-start"
-          direction="row"
-          justifyContent="space-between"
-          spacing={3}
+    <>
+      <Card className={styles.pointer} sx={sx} style={{border:"1px dashed #6366F1", backgroundColor:"#f3f3f7"}} onClick={() => setModalOpened(true)}>
+        <CardContent
         >
-          <Stack spacing={1}>
-            <Typography
-              color="text.secondary"
-              variant="overline"
-            >
-              Add New Project
-            </Typography>
-            <div className={styles.icon}>
-            <HiOutlinePlusCircle size={30} className={styles.pointer} />
-            </div>
-          </Stack>
-        </Stack>
           <Stack
             alignItems="center"
             direction="row"
-            spacing={2}
-            sx={{ mt: 2 }}
+            justifyContent="center"
+            spacing={3}
           >
+            <Stack spacing={1}>
+              <Typography
+                color="text.secondary"
+                variant="overline"
+              >
+                Add New Project
+              </Typography>
+              <div className={styles.icon}>
+                <HiOutlinePlusCircle size={40} />
+              </div>
+            </Stack>
           </Stack>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+      <AddCardModal
+        visible={modalOpened}
+        handleCardAdd={handleCardAdd}
+        onClose={() => setModalOpened(false)} />
+    </>
   );
 };
 
-OverviewBudget.prototypes = {
-  difference: PropTypes.number,
-  positive: PropTypes.bool,
-  sx: PropTypes.object,
-  value: PropTypes.string.isRequired
-};

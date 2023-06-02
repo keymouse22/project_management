@@ -28,7 +28,7 @@ const App = (props) => {
     <CacheProvider value={emotionCache}>
       <Head>
         <title>
-          Devias Kit
+         Project Management
         </title>
         <meta
           name="viewport"

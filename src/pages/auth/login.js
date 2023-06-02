@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -19,6 +18,7 @@ import {
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 import { loginUser } from 'src/api/users';
+import { useRouter } from 'next/router';
 
 const Page = () => {
   const router = useRouter();
@@ -46,9 +46,9 @@ const Page = () => {
         if (Object.values(values).length) {
           const res = await loginUser(values);
           console.log(res)
-          if (res.data.access_token && res.status === 201) {
+          if (res?.data?.access_token && res?.status === 201) {
+            router.push("/");
             localStorage.setItem('access_token',res.data.access_token);
-            window.location.pathname = "/"
           } else {
             helpers.setStatus({ success: false });
             helpers.setErrors({ submit: err.message });
@@ -68,14 +68,6 @@ const Page = () => {
       setMethod(value);
     },
     []
-  );
-
-  const handleSkip = useCallback(
-    () => {
-      auth.skip();
-      router.push('/');
-    },
-    [auth, router]
   );
 
   return (
