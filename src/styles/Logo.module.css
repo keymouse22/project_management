@@ -18,5 +18,8 @@
 }
 
 .pointer{
+    width: 230px;
+    height: 150px !important;
     cursor: pointer;
+    margin-right: 15px;
 }
