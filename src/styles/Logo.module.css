@@ -23,3 +23,168 @@
     cursor: pointer;
     margin-right: 15px;
 }
+  
+  .flexbox{
+    display:flex;
+    justify-content:space-around;
+    width:100%;
+    /* max-width: 768px; */
+    height: 100vh;
+    overflow:hidden;
+    margin: 0 auto;
+    padding: 25px;
+    color: rgb(3, 3, 66)
+  
+  }
+  
+  .flexbox .board{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background-color: #4f8bb6;
+    padding: 5px;
+    color:rgb(4, 8, 8);
+    border: 1px solid rgb(247 244 236 / 20%)
+  }
+  
+  .flexbox .board .card{
+    padding: 0px 15px;
+    background-color: white;
+    cursor: pointer;
+    margin: 10px;
+    height: 25%;
+    color: rgb(3, 3, 66)
+  }
+
+  .addList {
+    padding: 1rem;
+    min-width: 300px;
+    background-color: #f8f8f8;
+    box-shadow: 5px 10px 5px #e8e8e8;
+    text-align: left;
+}
+
+.taskname {
+    display: flex;
+    margin: 15px 0px;
+}
+
+.savetask {
+    margin-left: auto;
+}
+
+.input {
+    padding: 8px; 
+    border: none;
+    border-radius: 5px;
+}
+  
+.board {
+  display: flex; 
+  align-items: flex-start; 
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.newlist {
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  font-size: 30px;
+  box-shadow: 5px 5px 5px #e8e8e8;
+}
+
+.list {
+  margin: 1rem;
+  background-color: #f8f8f8;
+  box-shadow: 5px 10px 5px #e8e8e8;
+  min-width: 300px;
+  padding: 10px;
+}
+
+.listitem {
+  background-color: white;
+  padding: 5px;
+  margin: 10px 20px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.taskitem {
+  margin: 0px 5px;
+}
+
+.cards{
+    margin-top: 30px;
+}
+
+.title{
+    align-self: center;
+}
+
+.icon{
+    left: 40%;
+}
+
+.custominput {
+    width: 100%;
+  }
+  
+  .custominputdisplay {
+    padding: 6px 12px;
+    border-radius: 3px;
+    background-color: #eee;
+    color: #000;
+    cursor: pointer;
+    width: fit-content;
+    transition: 200ms;
+  }
+  
+  .custominputdisplay:hover {
+    background-color: #ddd;
+  }
+  
+  .custominputedit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .custominputedit input {
+    border: 2px solid #0079bf;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  
+  .custominputeditfooter {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .custominputeditfooter button {
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    background-color: #0079bf;
+    color: #fff;
+    border: none;
+    transition: 100ms ease;
+    padding: 10px;
+  }
+  .custominputeditfooter button:hover {
+    background-color: #046daa;
+  }
+  
+  .custominputeditfooter button:active {
+    transform: translateY(2px);
+  }
+  
+  .custominputeditfooter .closeIcon {
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+  }
+  

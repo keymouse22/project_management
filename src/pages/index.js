@@ -49,7 +49,6 @@ const Page = () => {
     if (deleted.status === 201) {
       toast.success("Udated Successfully");
     }
-    console.log('qwert', key, payload, edited)
   }
 
   return (
