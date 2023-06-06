@@ -1,0 +1,62 @@
+.custominput {
+    width: 100%;
+  }
+  
+  .custominputdisplay {
+    padding: 6px 12px;
+    border-radius: 3px;
+    background-color: #eee;
+    color: #000;
+    cursor: pointer;
+    width: fit-content;
+    transition: 200ms;
+  }
+  
+  .custominputdisplay:hover {
+    background-color: #ddd;
+  }
+  
+  .custominputedit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .custominputedit input {
+    border: 2px solid #0079bf;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  
+  .custominputeditfooter {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .custominputeditfooter button {
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    background-color: #0079bf;
+    color: #fff;
+    border: none;
+    transition: 100ms ease;
+    padding: 10px;
+  }
+  .custominputeditfooter button:hover {
+    background-color: #046daa;
+  }
+  
+  .custominputeditfooter button:active {
+    transform: translateY(2px);
+  }
+  
+  .custominputeditfooter .closeIcon {
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+  }
+  
