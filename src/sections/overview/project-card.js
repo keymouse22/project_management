@@ -1,18 +1,10 @@
 import { Card, CardContent, Stack, Typography } from '@mui/material';
-import { HiOutlinePlusCircle } from "react-icons/hi";
 import styles from "../../styles/Logo.module.css"
-import { useState } from 'react';
-import { AiTwotoneDelete } from "react-icons/ai";
-import { toast,ToastContainer } from 'react-toastify';
+import { AiTwotoneDelete, AiFillEdit } from "react-icons/ai";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-export const ProjectCard = ({projectName}) => {
-
-    const notify = () => toast("Wow so easy!");
-
-
-
+export const ProjectCard = ({projectName, deleteProjectById, updateProjectName}) => {
     return (
         <Card className={styles.pointer} style={{marginBottom: "15px"}}>
             <CardContent>
@@ -31,13 +23,10 @@ export const ProjectCard = ({projectName}) => {
                         </Typography>
                       
                     </Stack>
-                    <AiTwotoneDelete 
-                    onClick={() => {notify()}}
-                     />
-                     
+                    <AiTwotoneDelete onClick={()=>deleteProjectById()}/>
+                    <AiFillEdit onClick={()=>updateProjectName()}/>
                 </Stack>
             </CardContent>
-            <ToastContainer />
         </Card>
     )
 }

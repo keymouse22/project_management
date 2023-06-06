@@ -24,3 +24,13 @@ export const createProject = async (payload) => {
     const project = await instance.post("/projects/create-project", payload);
     return project;
 }
+
+export const deleteProject = async (id) => {
+    const project = await instance.delete(`/projects/${id}`);
+    return project;
+}
+
+export const editProject = async (payload) => {
+    const project = await instance.patch('/projects/edit', payload);
+    return project;
+}
