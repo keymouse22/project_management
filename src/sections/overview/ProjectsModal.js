@@ -1,10 +1,9 @@
 import React from 'react'
 import Rodal from 'rodal'
 import "rodal/lib/rodal.css";
-import styles from './AddCardModal.module.css'
+import styles from '../../components/AddCardModal/AddCardModal.module.css'
 
-
-const AddCardModal = ({ visible, onClose, handleCardAdd }) => {
+const ProjectsModal = ({ visible, onClose, handleCardAdd }) => {
     const customStyles = {
         background: "#fff",
         padding: "20px",
@@ -15,6 +14,8 @@ const AddCardModal = ({ visible, onClose, handleCardAdd }) => {
 
     }
     const [title, setTitle] = React.useState('')
+    const [name, setName] = React.useState('')
+    const [description, setDescription] = React.useState('')
 
     return (
         <Rodal customStyles={customStyles} visible={visible} onClose={onClose}>
@@ -24,11 +25,23 @@ const AddCardModal = ({ visible, onClose, handleCardAdd }) => {
                     <input type="text" className={styles.input} value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
 
+                <div>
+                    <span className={styles.label}>Title</span>
+                    <input type="text" className={styles.input} value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+
+                <div>
+                    <span className={styles.label}>Description</span>
+                    <textArea
+                        rows={10} className={styles.input} value={description}
+                        type="text" onChange={(e) => setDescription(e.target.value)} />
+                </div>
+
                 <button 
                 disabled={!title?.trim?.()?.length}
                 className={styles.saveButton}
                 onClick={()=> {
-                    handleCardAdd(title)
+                    handleCardAdd(title,name,description)
                     setTitle("")
                 }}
                 >
@@ -39,4 +52,4 @@ const AddCardModal = ({ visible, onClose, handleCardAdd }) => {
     )
 }
 
-export default AddCardModal
+export default ProjectsModal

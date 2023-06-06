@@ -34,7 +34,7 @@
     width: 6rem;
     align-self: flex-end;
     margin-top: 1.5rem;
-    background: lightgray;
+    background: grey;
     border: none;
     padding: 10px;
     color: black;
@@ -43,5 +43,6 @@
 }
 
 .saveButton:disabled{
-    background: grey;
+    background: lightgray;
+    cursor: default;
 }

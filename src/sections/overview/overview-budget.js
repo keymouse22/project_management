@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
 import { HiOutlinePlusCircle } from "react-icons/hi";
 import styles from "../../styles/Logo.module.css"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AddCardModal from 'src/components/AddCardModal/AddCardModal';
 
 

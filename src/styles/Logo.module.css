@@ -23,3 +23,109 @@
     cursor: pointer;
     margin-right: 15px;
 }
+
+
+
+  
+  .flexbox{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    /* max-width: 768px; */
+    height: 100vh;
+    overflow:hidden;
+    margin: 0 auto;
+    padding: 25px;
+    color: rgb(3, 3, 66)
+  
+  }
+  
+  .flexbox .board{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: #4f8bb6;
+    padding: 5px;
+    color:rgb(4, 8, 8);
+    border: 1px solid rgba(230, 227, 220, 0.2)
+  }
+  
+  .flexbox .board .card{
+    padding: 0px 15px;
+    background-color: white;
+    cursor: pointer;
+    margin: 10px;
+    height: 25%;
+    color: rgb(3, 3, 66)
+  }
+
+  .addList {
+    padding: 1rem;
+    min-width: 300px;
+    background-color: #f8f8f8;
+    box-shadow: 5px 10px 5px #e8e8e8;
+    text-align: left;
+}
+
+.taskname {
+    display: flex;
+    margin: 15px 0px;
+}
+
+.savetask {
+    margin-left: auto;
+}
+
+.input {
+    padding: 8px; 
+    border: none;
+    border-radius: 5px;
+}
+  
+.board {
+  display: flex; 
+  align-items: flex-start; 
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.newlist {
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  font-size: 30px;
+  box-shadow: 5px 5px 5px #e8e8e8;
+}
+
+.list {
+  margin: 1rem;
+  background-color: #f8f8f8;
+  box-shadow: 5px 10px 5px #e8e8e8;
+  min-width: 300px;
+  padding: 10px;
+}
+
+.listitem {
+  background-color: white;
+  padding: 5px;
+  margin: 10px 20px;
+  display: flex;
+  border-radius: 10px;
+}
+
+.taskitem {
+  margin: 0px 5px;
+}
+
+.task-action {
+  margin-left: auto;
+}
+
+.titleedit {
+  display: flex;
+  margin: 10px 20px;
+}
+
+.savetitle {
+  margin-left: auto;
+}

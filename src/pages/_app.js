@@ -10,6 +10,9 @@ import { createTheme } from 'src/theme';
 import { createEmotionCache } from 'src/utils/create-emotion-cache';
 import styles from "../styles/Logo.module.css";
 import 'simplebar-react/dist/simplebar.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import store from '../store';
+import { Provider } from 'react-redux';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -25,6 +28,8 @@ const App = (props) => {
   const theme = createTheme();
 
   return (
+    <Provider store={store}>
+
     <CacheProvider value={emotionCache}>
       <Head>
         <title>
@@ -50,6 +55,8 @@ const App = (props) => {
         </AuthProvider>
       </LocalizationProvider>
     </CacheProvider>
+    </Provider>
+
   );
 };
 

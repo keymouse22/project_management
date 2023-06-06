@@ -7,7 +7,6 @@ import { ProjectCard } from 'src/sections/overview/project-card';
 import { createProject, getUserProjects } from 'src/api/users';
 
 
-
 const Page = () => {
   const [projects, setProjects] = useState([]);
 
@@ -73,7 +72,6 @@ const Page = () => {
                 })}
             </Grid>
         </Container>
-       
       </Box>
     </>
   )
