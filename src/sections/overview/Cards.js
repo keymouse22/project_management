@@ -4,7 +4,7 @@ const Cards = (props) => {
     const dragStart = e => {
         const target = e.target
         e.dataTransfer.setData('id_card', target.id); 
-        
+
     }
 
     const dragOver = e => {

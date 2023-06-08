@@ -65,9 +65,9 @@ const Details = () => {
           </div>
 
           <h3 className={styles.title}>Work To Be Done</h3>
-          {card?.map((item) => {
+          {card?.map((item,i) => {
             return (
-              item.board_name === 'Tasks' && <Cards id="card-1" className={styles.card} draggable="true">
+              item.board_name === 'Tasks' && <Cards id={`card-${i}`} className={styles.card} draggable="true">
                 <Card style={{ border: "none" }} className={styles.cards}>
                 <div style={{paddingLeft: "78%"}}>
                   <AiTwotoneDelete />
@@ -94,10 +94,14 @@ const Details = () => {
             onClick={() => openModal("In-Progress")}
           />
           <h3 className={styles.title}>Work in Progress</h3>
-          {card?.map((item) => {
+          {card?.map((item,i) => {
             return (
-              item.board_name === 'In-Progress' && <Cards id="card-1" className={styles.card} draggable="true">
+              item.board_name === 'In-Progress' && <Cards id={`card-${i}`} className={styles.card} draggable="true">
                 <Card style={{ border: "none" }} className={styles.cards}>
+                <div style={{paddingLeft: "78%"}}>
+                  <AiTwotoneDelete />
+                <AiFillEdit onClick={() => editModal("Tasks")} />
+                </div>
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
@@ -120,10 +124,14 @@ const Details = () => {
             onClick={() => openModal("Done")}
           />
           <h3 className={styles.title}>Done</h3>
-          {card?.map((item) => {
+          {card?.map((item,i) => {
             return (
-              item.board_name === 'Done' && <Cards id="card-1" className={styles.card} draggable="true">
+              item.board_name === 'Done' && <Cards id={`card-${i}`} className={styles.card} draggable="true">
                 <Card style={{ border: "none" }} className={styles.cards}>
+                <div style={{paddingLeft: "78%"}}>
+                  <AiTwotoneDelete />
+                <AiFillEdit onClick={() => editModal("Tasks")} />
+                </div>
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
@@ -137,7 +145,7 @@ const Details = () => {
         </Board>
 
 
-        <Board id="board-3" className={styles.board}>
+        <Board id="board-4" className={styles.board}>
           <IoMdAdd
             color="white"
             // className={styles.icon}
@@ -145,10 +153,14 @@ const Details = () => {
             onClick={() => openModal("QA")}
           />
           <h3 className={styles.title}>QA verified</h3>
-          {card?.map((item) => {
+          {card?.map((item,i) => {
             return (
-              item.board_name === 'QA' && <Cards id="card-1" className={styles.card} draggable="true">
+              item.board_name === 'QA' && <Cards id={`card-${i}`} className={styles.card} draggable="true">
                 <Card style={{ border: "none" }} className={styles.cards}>
+                <div style={{paddingLeft: "78%"}}>
+                  <AiTwotoneDelete />
+                <AiFillEdit onClick={() => editModal("Tasks")} />
+                </div>
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>

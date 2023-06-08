@@ -7,6 +7,7 @@ const Board = (props) => {
         // key of the card to be fetched is passed
         const card_id = e.dataTransfer.getData('id_card');
         const card = document.getElementById(card_id);
+        console.log(card_id,card,"board")
 
         e.target.appendChild(card);
         

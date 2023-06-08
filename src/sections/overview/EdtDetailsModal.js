@@ -22,8 +22,21 @@ const EditDetailsModal = ({ visible, onClose, handleCardAdd, board, dataPost }) 
         marginTop: "7%"
     }
     const [title, setTitle] = React.useState('')
-    const [detail, setDetail] = React.useState('')
+    const [description, setDescription] = React.useState('')
     const [comment, setComment] = React.useState('')
+    const [value, setValue] = React.useState();
+    const [formData, setFormData] = React.useState({
+            title: 'john',
+            description: 'sss',
+            hours: 2,
+            comments: "ccc"
+            // Add more fields as needed
+          });
+        
+          const editHandler = (data) => {
+            setFormData(data);
+            console.log(data,"daa")
+          };
     const router = useRouter();
 
 
@@ -31,64 +44,74 @@ const EditDetailsModal = ({ visible, onClose, handleCardAdd, board, dataPost }) 
         var data = {
             board_name: board,
             title: title,
-            description: detail,
+            description: description,
             hours: Number(value),
             comments: comment,
             project_id: router.query.id
         };
         dataPost(data)
+        console.log(data, "dataaa")
     };
 
-    const [value, setValue] = React.useState();
-
-    const onChange = (event) => {
-        setValue(event.target.value);
-
-    };
 
     return (
         <Rodal customStyles={customStyles} visible={visible} onClose={onClose}>
-            <div className={styles.container}>
-                <div>
-                    <span className={styles.label}>Project Title</span>
-                    <input type="text" className={styles.input} value={title} onChange={(e) => setTitle(e.target.value)} />
+                <div className={styles.container}>
+                    <div>
+                        <span className={styles.label}>Project Title</span>
+                        <input type="text" className={styles.input}  value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} />
+                     
+                    </div>
+                    <div>
+                        <span className={styles.label}>Description</span>
+                        <textArea
+                            rows={10} className={styles.inputDescription} 
+                            type="text" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} />
+                    </div>
+                    <div>
+                        <span className={styles.label}>Hours</span> <br /> <br />
+                        <input type="number" value={formData.hours}   onChange={(e) => setFormData({ ...formData, hours: e.target.value })}   />
+                    </div>
+                    <div>
+                        <span className={styles.label}>Comment</span>
+                        <textArea
+                            rows={10} className={styles.inputComment} 
+                            type="text" value={formData.comments}   onChange={(e) => setFormData({ ...formData, comments: e.target.value })} />
+                    </div>
+
+                    <button onClick={() => editHandler()}>
+                        Add
+                    </button>
+
+
                 </div>
-
-                <div>
-                    <span className={styles.label}>Description</span>
-                    <textArea
-                        rows={10} className={styles.inputDescription} value={detail}
-                        type="text" onChange={(e) => setDetail(e.target.value)} />
-                </div>
-
-                <div>
-                    <span className={styles.label}>Hours</span> <br /> <br />
-                    <input type="number" onChange={onChange} value={value} />
-                </div>
-                <div>
-                    <span className={styles.label}>Comment</span>
-                    <textArea
-                        rows={10} className={styles.inputComment} value={comment}
-                        type="text" onChange={(e) => setComment(e.target.value)} />
-                </div>
-
-                <button
-                    disabled={title === "" && detail === ""}
-                    className={styles.saveButton}
-                    onClick={() => {
-                        postData()
-                        handleCardAdd(title, detail)
-                        setTitle("")
-                        setDetail("")
-                    }}
-                >
-                    Add
-                </button>
-
-
-            </div>
         </Rodal>
     )
 }
 
 export default EditDetailsModal
+
+
+// import React, { useState } from 'react';
+
+// const MyComponent = () => {
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     email: '',
+//     // Add more fields as needed
+//   });
+
+//   const editHandler = (data) => {
+//     setFormData(data);
+//   };
+
+//   return (
+//     <div>
+//       <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+//       <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+//       <button onClick={() => editHandler({ name: 'John', email: 'john@example.com' })}>Edit</button>
+//     </div>
+//   );
+// };
+
+// export default MyComponent;

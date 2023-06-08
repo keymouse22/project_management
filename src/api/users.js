@@ -44,3 +44,8 @@ export const postProjectTask = async (payload) => {
     const project = await instance.post("/project-task", payload);
     return project;
 }
+
+export const editProjectTask = async (payload) => {
+    const project = await instance.patch('/project-task', payload);
+    return project;
+}
