@@ -45,7 +45,6 @@ const Page = () => {
       try {
         if (Object.values(values).length) {
           const res = await loginUser(values);
-          console.log(res)
           if (res?.data?.access_token && res?.status === 201) {
             router.push("/");
             localStorage.setItem('access_token',res.data.access_token);

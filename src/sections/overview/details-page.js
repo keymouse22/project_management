@@ -46,7 +46,6 @@ const Details = () => {
   }
   const addTask=async(task)=>{
     const response = await postProjectTask(task)
-    console.log(response.data)
     setCard(response.data)
   }
 
