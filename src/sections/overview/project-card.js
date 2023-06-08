@@ -5,11 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 
 
-
-export const ProjectCard = ({projectName, deleteProjectById, updateProjectName}) => {
+export const ProjectCard = ({projectName, deleteProjectById, updateProjectName,getProject}) => {
     return (
         <>
-         <Link href="/details">
+        
         <Card className={styles.pointer} style={{marginBottom: "15px"}}>
             <CardContent>
                 <Stack
@@ -17,8 +16,8 @@ export const ProjectCard = ({projectName, deleteProjectById, updateProjectName})
                     direction="row"
                     justifyContent="space-between"
                     spacing={3}
-                >
-                    <Stack spacing={1}>
+                > 
+                        <Stack spacing={1} onClick ={()=>getProject()}>
                         <Typography
                             color="text.secondary"
                             variant="overline"
@@ -35,7 +34,7 @@ export const ProjectCard = ({projectName, deleteProjectById, updateProjectName})
                 </Stack>
             </CardContent>
         </Card>
-        </Link>
+        
         </>
     )
 }

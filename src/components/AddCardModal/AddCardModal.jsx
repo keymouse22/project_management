@@ -23,14 +23,6 @@ const AddCardModal = ({ visible, onClose, handleCardAdd }) => {
                     <span className={styles.label}>Enter Project Name</span>
                     <input type="text" className={styles.input} value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
-
-                {/* <div>
-                    <span className={styles.label}>Detail</span>
-                    <textArea
-                        rows={10} className={styles.input} value={detail}
-                        type="text" onChange={(e) => setDetail(e.target.value)} />
-                </div> */}
-
                 <button 
                 disabled={title=== ""}
                 className={styles.saveButton}

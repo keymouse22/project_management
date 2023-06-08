@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 
 
-const DetailsModal = ({ visible, onClose, handleCardAdd, board, dataPost }) => {
+const EditDetailsModal = ({ visible, onClose, handleCardAdd, board, dataPost }) => {
     const customStyles = {
         width: "100%",
         height: "fit-content",
@@ -91,4 +91,4 @@ const DetailsModal = ({ visible, onClose, handleCardAdd, board, dataPost }) => {
     )
 }
 
-export default DetailsModal
+export default EditDetailsModal

@@ -4,11 +4,13 @@ import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
 import { OverviewBudget } from "src/sections/overview/overview-budget";
 import { useEffect, useState } from "react";
 import { ProjectCard } from "src/sections/overview/project-card";
-import { createProject, deleteProject, editProject, getUserProjects } from "src/api/users";
+import { createProject, deleteProject, editProject, getProjectTask, getUserProjects } from "src/api/users";
 import { ToastContainer, toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Page = () => {
   const [projects, setProjects] = useState([]);
+  const router = useRouter();
 
   const projectData = async () => {
     if (window) {
@@ -26,8 +28,9 @@ const Page = () => {
   }, [window !== undefined]);
 
   const projectCreate = async (e) => {
-    const payload = { project_name: e, project_id: projects?.length + 1 };
+    const payload = { project_name: e };
     const response = await createProject(payload);
+    localStorage.setItem("response", JSON.stringify(response.data))
     setProjects(response.data);
     if (response.status === 201) {
       toast.success("Created Successfully");
@@ -42,12 +45,16 @@ const Page = () => {
     }
   };
 
+  const getProject = async(id) => {
+    router.push(`/details/${id}`)
+  }
+
   const updateProjectName = async (key) => {
-    const payload = {project_id: key.project_id, project_name: key.project_name}
+    const payload = { project_name: key.project_name}
     const edited = await editProject(payload);
     setProjects(edited.data);
-    if (deleted.status === 201) {
-      toast.success("Udated Successfully");
+    if (edited?.status === 200) {
+      toast.success("Updated Successfully");
     }
   }
 
@@ -78,10 +85,11 @@ const Page = () => {
               projects?.map((key, i) => {
                 return (
                   <ProjectCard
-                    deleteProjectById={()=>deleteProjectById(key.project_id)}
+                    deleteProjectById={()=>deleteProjectById(key?._id)}
                     updateProjectName={()=>updateProjectName(key)}
                     projectName={key.project_name}
                     projects={projects}
+                    getProject={()=>getProject(key?._id)}
                   />
                 );
               })}

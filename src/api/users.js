@@ -16,7 +16,7 @@ export const loginUser = async (payload) => {
 }
 
 export const getUserProjects = async () => {
-    const project = await instance.get("/projects/all-project").then((res) => { return res.data });
+    const project = await instance.get("/projects").then((res) => { return res.data });
     return project;
 }
 
@@ -32,5 +32,15 @@ export const deleteProject = async (id) => {
 
 export const editProject = async (payload) => {
     const project = await instance.patch('/projects/edit', payload);
+    return project;
+}
+
+export const getProjectTask = async (id) => {
+    const user = await instance.get(`/project-task/${id}`);
+    return user;
+}
+
+export const postProjectTask = async (payload) => {
+    const project = await instance.post("/project-task", payload);
     return project;
 }

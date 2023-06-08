@@ -27,7 +27,7 @@
   .flexbox{
     display:flex;
     justify-content:space-around;
-    width:100%;
+    width:130%;
     /* max-width: 768px; */
     height: 100vh;
     overflow:hidden;
@@ -40,9 +40,9 @@
   .flexbox .board{
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 22%;
     background-color: #4f8bb6;
-    padding: 5px;
+    padding: 10pxpx;
     color:rgb(4, 8, 8);
     border: 1px solid rgb(247 244 236 / 20%)
   }
@@ -51,8 +51,9 @@
     padding: 0px 15px;
     background-color: white;
     cursor: pointer;
-    margin: 10px;
-    height: 25%;
+    margin: 14px;
+    align-self: normal;
+    /* height: 20%; */
     color: rgb(3, 3, 66)
   }
 
