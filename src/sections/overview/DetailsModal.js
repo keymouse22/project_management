@@ -73,13 +73,15 @@ const DetailsModal = ({ visible, onClose, handleCardAdd, board, dataPost }) => {
                 </div>
 
                 <button
-                    disabled={title === "" && detail === ""}
+                    disabled={title === "" && detail === "" && value === "" && comment === ""}
                     className={styles.saveButton}
                     onClick={() => {
                         postData()
                         handleCardAdd(title, detail)
                         setTitle("")
                         setDetail("")
+                        setValue("")
+                        setComment("")
                     }}
                 >
                     Add

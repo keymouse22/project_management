@@ -49,3 +49,9 @@ export const editProjectTask = async (payload) => {
     const project = await instance.patch('/project-task', payload);
     return project;
 }
+
+export const deleteTask = async (id) => {
+    console.log(id,"fghjk")
+    const project = await instance.delete(`/project-task/${id}`);
+    return project;
+}

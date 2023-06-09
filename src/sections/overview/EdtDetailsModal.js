@@ -90,28 +90,3 @@ const EditDetailsModal = ({ visible, onClose, handleCardAdd, board, dataPost }) 
 }
 
 export default EditDetailsModal
-
-
-// import React, { useState } from 'react';
-
-// const MyComponent = () => {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     // Add more fields as needed
-//   });
-
-//   const editHandler = (data) => {
-//     setFormData(data);
-//   };
-
-//   return (
-//     <div>
-//       <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
-//       <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-//       <button onClick={() => editHandler({ name: 'John', email: 'john@example.com' })}>Edit</button>
-//     </div>
-//   );
-// };
-
-// export default MyComponent;
